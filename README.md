@@ -8,3 +8,15 @@ I'm using C to run the algorithms since it allows me to skip the boilerplate tha
 I have a decent bit of experience with C++, so I'm somewhat aware of low-level processes but definitely still have much to learn.
 
 I also tried this with higher-level abstraction in [Rust](https://github.com/KojoBailey/algorithms-rs)!
+
+## Expected Output
+```
+arr = {4, 2, 1, 5, 3}
+Max: 5
+Min: 1
+
+EDGE CASE
+empty_arr = {}
+Max of empty array: 0
+Min of empty array: 0
+```
