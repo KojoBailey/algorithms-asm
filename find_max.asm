@@ -1,6 +1,8 @@
 section .text
 global   find_max
 
+	INT_SIZE EQU 4
+
 find_max:
 	; ecx: int size
 	; [rdx]: int* arr
@@ -10,7 +12,7 @@ find_max:
 	jz  return
 
 compare:
-	add   rdx, 4; move to next array element
+	add   rdx, INT_SIZE
 	mov   r8d, [rdx]
 	cmp   r8d, eax
 	cmovg eax, r8d
