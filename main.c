@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-extern int find_max(int size, int* arr);
+extern int find_max(int* arr, int size);
 
 void print_arr(int* arr, int size)
 {
@@ -21,6 +21,6 @@ int main(void)
 	int size = sizeof(arr) / sizeof(arr[0]);
 	print_arr(arr, size);
 
-	int max_value = find_max(size, arr);
+	int max_value = find_max(arr, size);
 	printf("Max: %d\n", max_value);
 }

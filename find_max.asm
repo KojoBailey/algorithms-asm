@@ -4,19 +4,20 @@ global   find_max
 	INT_SIZE EQU 4
 
 find_max:
-	; ecx: int size
-	; [rdx]: int* arr
+	; rcx <- int* arr
+	; edx <- int size
 
-	mov eax, [rdx]
-	dec ecx
+	mov eax, [rcx]
+	dec edx
 	jz  return
 
 compare:
-	add   rdx, INT_SIZE
-	mov   r8d, [rdx]
+	add   rcx, INT_SIZE
+	mov   r8d, [rcx]
 	cmp   r8d, eax
 	cmovg eax, r8d
-	loop  compare
+	dec   edx
+	jnz   compare
 
 return:
 	ret
