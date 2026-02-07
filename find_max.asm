@@ -7,6 +7,9 @@ find_max:
 	; rcx <- int* arr
 	; rdx <- size_t size
 
+	test rdx, rdx
+	jz   zero_case
+
 	mov eax, [rcx]
 	dec rdx
 	jz  return
@@ -20,4 +23,8 @@ compare:
 	jnz compare
 
 return:
+	ret
+
+zero_case:
+	xor eax, eax; set register to 0
 	ret
