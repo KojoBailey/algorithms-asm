@@ -5,19 +5,19 @@ global   find_max
 
 find_max:
 	; rcx <- int* arr
-	; edx <- int size
+	; rdx <- size_t size
 
 	mov eax, [rcx]
-	dec edx
+	dec rdx
 	jz  return
 
 compare:
-	add   rcx, INT_SIZE
-	mov   r8d, [rcx]
+	mov   r8d, [rcx + rdx * INT_SIZE]
 	cmp   r8d, eax
 	cmovg eax, r8d
-	dec   edx
-	jnz   compare
+
+	dec rdx
+	jnz compare
 
 return:
 	ret

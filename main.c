@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-extern int find_max(int* arr, int size);
+extern int find_max(int* arr, size_t size);
 
-void print_arr(int* arr, int size)
+void print_arr(int* arr, size_t size)
 {
 	printf("{");
 	for (int i = 0; i < size; i++) {
@@ -18,7 +18,7 @@ void print_arr(int* arr, int size)
 int main(void)
 {
 	int arr[] = {4, 2, 1, 5, 3};	
-	int size = sizeof(arr) / sizeof(arr[0]);
+	size_t size = sizeof(arr) / sizeof(arr[0]);
 	print_arr(arr, size);
 
 	int max_value = find_max(arr, size);
