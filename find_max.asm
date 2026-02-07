@@ -1,5 +1,5 @@
 section .text
-global find_max
+global   find_max
 
 find_max:
 	; ecx: int size
@@ -14,8 +14,7 @@ compare:
 	mov   r8d, [rdx]
 	cmp   r8d, eax
 	cmovg eax, r8d; if r8d > eax
-	dec   ecx
-	jnz   compare; if edx != 0
+	loop  compare; if ecx != 0
 
 return:
 	ret
