@@ -3,9 +3,9 @@
 extern int find_max(int* arr, size_t size);
 extern int find_min(int* arr, size_t size);
 
-void print_arr(int* arr, size_t size)
+void print_arr(int* arr, size_t size, const char* name)
 {
-	printf("{");
+	printf("%s = {", name);
 	for (int i = 0; i < size; i++) {
 		printf("%d", arr[i]);
 
@@ -20,7 +20,7 @@ int main(void)
 {
 	int arr[] = {4, 2, 1, 5, 3};	
 	size_t size = sizeof(arr) / sizeof(arr[0]);
-	print_arr(arr, size);
+	print_arr(arr, size, "arr");
 
 	int max_value = find_max(arr, size);
 	printf("Max: %d\n", max_value);
@@ -30,6 +30,7 @@ int main(void)
 	printf("\nEDGE CASE\n");
 	int empty_arr[] = {};
 	size_t empty_size = 0;
+	print_arr(empty_arr, empty_size, "empty_arr");
 	printf("Max of empty array: %d\n", find_max(empty_arr, empty_size));
 	printf("Min of empty array: %d\n", find_min(empty_arr, empty_size));
 }
