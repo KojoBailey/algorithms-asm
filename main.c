@@ -26,4 +26,9 @@ int main(void)
 	printf("Max: %d\n", max_value);
 	int min_value = find_min(arr, size);
 	printf("Min: %d\n", min_value);
+
+	printf("\nEDGE CASE\n");
+	int empty_arr[] = {};
+	size_t empty_size = 0;
+	printf("Max of empty array: %d\n", find_max(empty_arr, empty_size));
 }
