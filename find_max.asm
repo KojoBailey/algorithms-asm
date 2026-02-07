@@ -1,21 +1,21 @@
-section.text
+section .text
 global find_max
 
 find_max:
-	; [rcx]: int* arr
-	; edx: int size
+	; ecx: int size
+	; [rdx]: int* arr
 
-	mov eax, [rcx]; eax <- *rcx
-	dec edx; edx--
-	jz  return; if edx == 0: jmp return
+	mov eax, [rdx]
+	dec ecx
+	jz  return; if edx == 0
 
 compare:
-	add   rcx, 4; rcx++
-	mov   r8d, [rcx]; r8d <- *rcx
-	cmp   r8d, eax; if r8d > eax:
-	cmovg eax, r8d; eax <- r8d
-	dec   edx; edx--
-	jnz   compare; if edx != 0: jmp compare
+	add   rdx, 4; move to next array element
+	mov   r8d, [rdx]
+	cmp   r8d, eax
+	cmovg eax, r8d; if r8d > eax
+	dec   ecx
+	jnz   compare; if edx != 0
 
 return:
 	ret
