@@ -31,4 +31,5 @@ int main(void)
 	int empty_arr[] = {};
 	size_t empty_size = 0;
 	printf("Max of empty array: %d\n", find_max(empty_arr, empty_size));
+	printf("Min of empty array: %d\n", find_min(empty_arr, empty_size));
 }
