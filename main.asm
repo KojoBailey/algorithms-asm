@@ -16,9 +16,6 @@ global _start
 		; eax <- int
 
 section .data
-	msg     db "Hello, world!", 0xA
-	msg_len equ $ - msg
-
 	arr     dd 4, 2, 1, 5, 3
 
 	max_str db "Max: "
@@ -31,11 +28,6 @@ section .text
 _start:
 	;-- align stack
 	sub rsp, 40 ; 32 bytes shadow space + 8 bytes stack alignment
-
-	;-- print "Hello, world!"
-	lea  rdx, [msg] ; arg1
-	mov  r8, msg_len ; arg2
-	call print_string
 
 	;-- find max
 	lea rcx, [arr]
