@@ -1,5 +1,6 @@
+bits 64
 section .text
-global   find_max
+global  find_max
 
 	INT_SIZE EQU 4
 

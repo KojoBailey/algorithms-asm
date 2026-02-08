@@ -1,5 +1,6 @@
+bits 64
 section .text
-global   find_min
+global  find_min
 
 	INT_SIZE EQU 4
 
