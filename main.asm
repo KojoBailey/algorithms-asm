@@ -10,6 +10,7 @@ global _start
 		; r8  <- length: u64
 	extern print_int ; function: void
 		; eax <- int
+	extern print_array
 ; find_max.asm
 	extern find_max ; function: int
 		; rcx <- arr: i32*
@@ -22,13 +23,13 @@ global _start
 section .data
 	arr     dd 4, 2, 1, 5, 3
 
+	newline db 0xA
+
 	max_str db "Max: "
 	max_len equ $ - max_str
 
 	min_str db "Min: "
 	min_len equ $ - min_str
-
-	newline db 0xA
 
 section .bss
 	max_value resd 1
@@ -38,6 +39,11 @@ section .text
 _start:
 	;-- align stack
 	sub rsp, 40 ; 32 bytes shadow space + 8 bytes stack alignment
+
+	;-- print array
+	lea rcx, [arr]
+	mov edx, 5
+	call print_array
 
 	;-- find max
 	lea rcx, [arr]
