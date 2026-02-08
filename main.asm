@@ -8,12 +8,16 @@ global _start
 	extern print_string ; function: void
 		; rdx <- string: char*
 		; r8  <- length: u64
+	extern print_int ; function: void
+		; eax <- int
 ; find_max.asm
 	extern find_max ; function: int
 		; rcx <- arr: i32*
 		; rdx <- size: u64
-	extern print_int ; function: void
-		; eax <- int
+; find_min.asm
+	extern find_min ; function: int
+		; rcx <- arr: i32*
+		; rdx <- size: u64
 
 section .data
 	arr     dd 4, 2, 1, 5, 3
@@ -21,8 +25,14 @@ section .data
 	max_str db "Max: "
 	max_len equ $ - max_str
 
+	min_str db "Min: "
+	min_len equ $ - min_str
+
+	newline db 0xA
+
 section .bss
 	max_value resd 1
+	min_value resd 1
 
 section .text
 _start:
@@ -41,6 +51,24 @@ _start:
 	call print_string
 
 	mov eax, [max_value]
+	call print_int
+
+	lea rdx, [newline]
+	mov r8, 1
+	call print_string
+
+	;-- find min
+	lea rcx, [arr]
+	mov rdx, 5
+	call find_min
+	mov dword [min_value], eax
+
+	;-- print min
+	lea rdx, [min_str]
+	mov r8, min_len
+	call print_string
+
+	mov eax, [min_value]
 	call print_int
 
 	;-- return
