@@ -1,7 +1,7 @@
-# Algorithms in Assembly
-Here's a place for me to practice implementing algorithms in Assembly as I learn about both algorithms and data structures and Assembly itself.
+# Algorithms in assembly
+Here's a place for me to practice implementing algorithms in assembly lang as I learn about both algorithms and data structures and assembly itself.
 
-In particular, I'm using [x86 Assembly](https://en.wikipedia.org/wiki/X86_assembly_language) on my Intel Windows 11 laptop, so pointers are 64-bit and the C `int` type is 32-bit.
+In particular, I'm using [x86 assembly](https://en.wikipedia.org/wiki/X86_assembly_language) on my Intel Windows 11 laptop, so pointers are 64-bit and the C `int` type is 32-bit.
 
 I'm using C to run the algorithms since it allows me to skip the boilerplate that comes with writing an entire program in pure Assembly. It also just generally makes this process more modular, although perhaps I will switch to pure Assembly later on once I'm more comfortable.
 
